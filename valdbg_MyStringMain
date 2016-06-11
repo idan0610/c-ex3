@@ -1,0 +1,18 @@
+==39674== Memcheck, a memory error detector
+==39674== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==39674== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info
+==39674== Command: main 2
+==39674== 
+Enter the first string:
+Enter the second string:
+Compare between the 2 strings and writing the result to test.out...
+Done.
+==39674== 
+==39674== HEAP SUMMARY:
+==39674==     in use at exit: 0 bytes in 0 blocks
+==39674==   total heap usage: 7 allocs, 7 frees, 616 bytes allocated
+==39674== 
+==39674== All heap blocks were freed -- no leaks are possible
+==39674== 
+==39674== For counts of detected and suppressed errors, rerun with: -v
+==39674== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

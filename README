@@ -1,0 +1,14 @@
+Idan Refaeli 305681132
+idan0610
+
+Answers to Questions:
+1. Defining the whole struct inside the h file opens its members to the users uses include for the
+h file. In that way they can change the members directly and may accidently  cause for errors or 
+memory leaks. Preventing the users accessing the members of the struct and allowing them only use
+the functions declared in the h file that have been tested and are working propely help them
+to proram safely.
+
+2. The compiler doesn't need to know what are the private members and their size of the struct.
+The members of the struct are hidden and so there is no access to any of the private members for
+every file using MyString.h. The compiler only check that the struct exist when the is an instance
+of the struct.

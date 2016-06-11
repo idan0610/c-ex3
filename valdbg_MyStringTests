@@ -1,0 +1,168 @@
+==39712== Memcheck, a memory error detector
+==39712== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==39712== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info
+==39712== Command: tests 2
+==39712== 
+ERROR as expected, because and compare
+: Success
+ERROR as expected, because and compare
+: Invalid argument
+ERROR as expected because can't compare
+: Invalid argument
+Testing myStringAlloc()...
+Allocating a new empty MyString to myString
+Empty string successfully allocated
+
+Testing myStringFree()...
+Allocating a new empty MyString to myString
+Trying to free to memory allocated to myString
+Memory successfully freed. Setting myString to NULL
+Trying to free memory allocated to NULL
+Nothing happened as needed
+
+Testing myStringClone()...
+Allocating a new empty MyString to myString1
+Setting myString to be "abc"
+Cloning myString1 into myString2
+Cloning success. myString2 is "abc"
+
+Testing myStringSetFromMyString()...
+Allocating a new empty MyString to myString1
+Setting myString1 to be "abc"
+Allocating a new empty MyString to myString1
+Setting myString2 to be "def"
+Success. myString2 = abc
+
+Testing myStringFilter()...
+Allocating a new empty MyString to myString1
+Setting myString to be "abcbfdgbdfsgjh"
+Success. myString = acfddfsjh
+
+Testing myStringSetFromCString()...
+Allocating empty MyString to myString
+Setting myString1 to "abc"
+SUCCESS. myString = abc
+Setting myString to "def"
+SUCCESS. myString1 = def
+
+Testing myStringSetFromInt()...
+Allocating a new empty MyString to myString
+Setting myString to 765
+Success. myString = 765
+Setting myString to -1385
+Success. myString = -1385
+
+Testing myStringSetFromInt()...
+Allocating a new empty MyString to myString
+Setting myString to 765
+Success. num = 765
+Setting myString to "abc"
+Returns error as expected, because of bad argument.
+
+Testing myStringToCString()...
+Allocating a new empty MyString to myString
+Setting myString to "abc"
+Success. cString = abc
+
+Testing myStringToCString()...
+Allocating a new empty MyString to myString1
+Setting myString1 to "abc"
+Allocating a new empty MyString to myString2
+Setting myString2 to "def"
+Appending myString2 to myString1:
+Success. myString1 = abcdef
+
+Testing myStringCatTo()...
+Allocating a new empty MyString to myString1
+Setting myString1 to "abc"
+Allocating a new empty MyString to myString2
+Setting myString2 to "def"
+Allocating a new empty MyString to result
+Concatenate myString1 and myString2 into result
+Success. result = abcdef
+
+Testing myStringCompare()...
+Allocating a new empty MyString to myString1
+Setting myString1 to "abc"
+Allocating a new empty MyString to myString2
+Setting myString2 to "def"
+myString2 is bigger then myString1
+Setting myString2 to "abc"
+myString1 and myString2 are equal
+Setting myString2 to NULL
+
+Testing myStringCustomCompare()...
+Allocating a new empty MyString to myString1
+Setting myString1 to "abc"
+Allocating a new empty MyString to myString2
+Setting myString2 to "def"
+myString2 is bigger then myString1
+Setting myString2 to "abc"
+myString1 and myString2 are equal
+Setting myString2 to NULL
+
+Testing myStringEqual()...
+Allocating a new empty MyString to myString1
+Setting myString1 to "abc"
+Allocating a new empty MyString to myString2
+Setting myString2 to "def"
+myString1 and myString2 are not equal
+Setting myString2 to "abc"
+myString1 and myString2 are equal
+Setting myString2 to NULL
+
+Testing myStringCustomEqual()...
+Allocating a new empty MyString to myString1
+Setting myString1 to "abc"
+Allocating a new empty MyString to myString2
+Setting myString2 to "def"
+myString1 and myString2 are not equal
+Setting myString2 to "abc"
+myString1 and myString2 are equal
+Setting myString2 to NULL
+ERROR as expected
+
+Testing myStringMemUsage()...
+Allocating a new empty MyString to myString
+Setting myString to "abc"
+Memory usage of myString: 11
+Testing myStringLen()...
+Allocating a new empty MyString to myString2
+Setting myString to "abc"
+Length of myString: 3
+Testing myStringWrite()...
+Allocating a new empty MyString to myString
+Setting myString to "abc"
+Wrote myString to  test.txt successfully
+
+Testing myStringCustomSort()...
+Allocating a new empty MyString to myString1
+Setting myString to "abb"
+Allocating a new empty MyString to myString2
+Setting myString to "aab"
+Allocating a new empty MyString to myString3
+Setting myString to "bbb"
+Allocating a new empty MyString to myString4
+Setting myString to "aaa"
+Sorting success. Results in testSort.txt.
+
+Testing myStringSort()...
+Allocating a new empty MyString to myString1
+Setting myString to "abb"
+Allocating a new empty MyString to myString2
+Setting myString to "aab"
+Allocating a new empty MyString to myString3
+Setting myString to "bbb"
+Allocating a new empty MyString to myString4
+Setting myString to "aaa"
+Sorting success. Results in testSort.txt.
+
+==39712== 
+==39712== HEAP SUMMARY:
+==39712==     in use at exit: 0 bytes in 0 blocks
+==39712==   total heap usage: 102 allocs, 102 frees, 2,526 bytes allocated
+==39712== 
+==39712== All heap blocks were freed -- no leaks are possible
+==39712== 
+==39712== For counts of detected and suppressed errors, rerun with: -v
+==39712== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
